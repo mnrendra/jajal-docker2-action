@@ -32,7 +32,7 @@ const main = async (): Promise<string> => {
     currentWorkdir = outputs.workdir
   }
 
-  console.log('----ISO----!!!')
+  console.log('----susu----!!!')
 
   const release = defaultModule(semanticRelease)
 
