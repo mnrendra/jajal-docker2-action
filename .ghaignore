@@ -1,0 +1,15 @@
+# directories
+.github/
+archive/
+node_modules/
+src/
+
+# files
+.czrc*
+.eslintrc*
+.ghaignore
+.gitignore*
+.pre-commit-config*
+jest*
+rollup*
+tsconfig*
