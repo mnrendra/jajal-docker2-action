@@ -20,7 +20,9 @@ const updateActionVersion = (
 
     if (versionMatch !== null && versionMatch !== undefined) {
       const [, indent,, space, comment] = versionMatch
-      lines[i] = `${indent}version: ${version}${space !== '' ? space : ' '}${comment !== '' ? comment : ''}`
+      const hasSpace = typeof space === 'string' && space !== ''
+      const hasComment = typeof comment === 'string' && comment !== ''
+      lines[i] = `${indent}version: ${version}${hasSpace ? space : ' '}${hasComment ? comment : ''}`
       hasVersion = true
       break
     }
