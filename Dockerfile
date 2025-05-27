@@ -15,6 +15,6 @@ dist/index.js \
 scripts/setup.sh \
 .
 
-RUN chmod +x setup.sh && setup.sh
+RUN chmod +x /action/setup.sh && /action/setup.sh
 
 ENTRYPOINT ["node", "/action/index.js"]
