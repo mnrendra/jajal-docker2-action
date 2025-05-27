@@ -1,0 +1,56 @@
+name: Jajal Docker2 Action
+description: Jajal docker2 action.
+version: 1.0.0
+
+author: Muhammad Rendra
+
+branding:
+  icon: at-sign
+  color: green
+
+inputs:
+  workdir:
+    description: Working directory
+    default: '.'
+  gpg-private-key:
+    description: GPG private key for signing Git commits, tags, and pushes
+  gpg-passphrase:
+    description: Passphrase of the GPG private key
+  gpg-fingerprint:
+    description: Specific fingerprint to use subkey of the GPG private key
+  gpg-trust-level:
+    description: Trust level of the GPG private key
+  git-scope:
+    description: Git config scope
+    default: 'local'
+  git-sign-user:
+    description: Set Git user.signingkey within GPG signing keyID
+    default: true
+  git-sign-commit:
+    description: Set Git commit.gpgsign to automate signing git commits
+    default: false
+  git-sign-tag:
+    description: Set Git tag.gpgsign to automate signing git tags
+    default: false
+  git-sign-push:
+    description: Set Git push.gpgsign to automate signing git pushes
+    default: false
+  token:
+    description: GitHub token
+    default: ${{ github.token }}
+
+runs:
+  using: docker
+  image: Dockerfile
+  # env:
+  #   WORKDIR: ${{ inputs.workdir }}
+  #   GPG_PRIVATE_KEY: ${{ inputs.gpg-private-key }}
+  #   GPG_PASSPHRASE: ${{ inputs.gpg-passphrase }}
+  #   GPG_FINGERPRINT: ${{ inputs.gpg-fingerprint }}
+  #   GPG_TRUST_LEVEL: ${{ inputs.gpg-trust-level }}
+  #   GIT_SCOPE: ${{ inputs.git-scope }}
+  #   GIT_SIGN_USER: ${{ inputs.git-sign-user }}
+  #   GIT_SIGN_COMMIT: ${{ inputs.git-sign-commit }}
+  #   GIT_SIGN_TAG: ${{ inputs.git-sign-tag }}
+  #   GIT_SIGN_PUSH: ${{ inputs.git-sign-push }}
+  #   TOKEN: ${{ inputs.token }}
