@@ -26,12 +26,12 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
-          # token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.TOKEN }}
 
       # Hello world action step
       - name: Hello world action step
         uses: mnrendra/jajal-docker2-action@f16445c6182c63aa17a77d821d8e6d34dd0685ee
         with:
-          token: ${{ secrets.TOKEN }}
+          # token: ${{ secrets.TOKEN }}
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
