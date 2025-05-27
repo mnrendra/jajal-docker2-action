@@ -1,6 +1,6 @@
 {
   "name": "@mnrendra/jajal-docker2-action",
-  "version": "2.0.2",
+  "version": "3.1.2",
   "description": "Jajal docker action.",
   "private": false,
   "scripts": {
