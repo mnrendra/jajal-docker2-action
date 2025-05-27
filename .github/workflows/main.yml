@@ -1,4 +1,4 @@
-name: Madang
+name: Release
 
 on:
   push:
@@ -9,8 +9,8 @@ permissions:
   contents: read
 
 jobs:
-  hello_world_job:
-    name: A job to say hello
+  release:
+    name: Release
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -28,10 +28,9 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.TOKEN }}
 
-      # Hello world action step
-      - name: Hello world action step
-        uses: mnrendra/jajal-docker2-action@f16445c6182c63aa17a77d821d8e6d34dd0685ee
-        with:
-          # token: ${{ secrets.TOKEN }}
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      # Release
+      # - name: Release
+      #   uses: mnrendra/jajal-docker2-action@f16445c6182c63aa17a77d821d8e6d34dd0685ee
+      #   with:
+      #     gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+      #     gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}

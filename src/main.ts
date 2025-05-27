@@ -32,8 +32,6 @@ const main = async (): Promise<string> => {
     currentWorkdir = outputs.workdir
   }
 
-  console.log('----susu----!!!')
-
   const release = defaultModule(semanticRelease)
 
   const result = await release(config, {
