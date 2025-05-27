@@ -12,13 +12,9 @@ COPY \
 package.json \
 package-lock.json \
 dist/index.js \
+scripts/setup.sh \
 .
 
-RUN \
-apt-get update -qq && \
-apt-get install -y --no-install-recommends -qq ca-certificates git gnupg && \
-npm ci --production --silent && \
-npm cache clean --force --silent && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.npm/_cacache
+RUN chmod +x setup.sh && setup.sh
 
 ENTRYPOINT ["node", "/action/index.js"]

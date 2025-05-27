@@ -34,6 +34,8 @@ const main = async (): Promise<string> => {
 
   const release = defaultModule(semanticRelease)
 
+  console.log('GITHUB_TOKEN:', token?.slice(0, 34))
+
   const result = await release(config, {
     env: {
       ...env,

@@ -10,6 +10,8 @@ const restoreGitIgnore = (
   rmSync(GIT_IGNORE, { force: true })
 
   copyFileSync(backupFile, GIT_IGNORE)
+
+  rmSync(backupFile, { force: true })
 }
 
 export default restoreGitIgnore
