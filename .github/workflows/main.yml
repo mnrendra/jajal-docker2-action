@@ -29,8 +29,8 @@ jobs:
           token: ${{ secrets.TOKEN }}
 
       # Release
-      # - name: Release
-      #   uses: mnrendra/jajal-docker2-action@173b2808b7db3c4cf992eb8fde92a2340f4db1da # v3.0.0
-      #   with:
-      #     gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-      #     gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      - name: Release
+        uses: mnrendra/jajal-docker2-action@2abdd0f8737ff7ec30884d3631603892f761043b # v3.2.0
+        with:
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
