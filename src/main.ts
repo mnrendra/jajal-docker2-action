@@ -9,10 +9,13 @@ import git from './libs/git'
 import { importGPG, cleanupGPG } from './libs/import-gpg'
 import config from './libs/semantic-release-config-github-action'
 
-import { getInputs } from './utils'
+import { getEnvs, getInputs } from './utils'
 
 const main = async (): Promise<string> => {
   await git.setConfig('safe.directory', WORKDIR, 'global')
+
+  const envs = getEnvs()
+  console.log('Environments:', envs)
 
   const inputs = getInputs()
 
@@ -33,21 +36,6 @@ const main = async (): Promise<string> => {
   }
 
   const release = defaultModule(semanticRelease)
-
-  console.log('GITHUB_TOKEN:', token?.slice(0, 34))
-
-  console.log('GITHUB_REPOSITORY:', env.GITHUB_REPOSITORY)
-  console.log('GITHUB_REPOSITORY_ID:', env.GITHUB_REPOSITORY_ID)
-  console.log('GITHUB_REPOSITORY_OWNER:', env.GITHUB_REPOSITORY_OWNER)
-  console.log('GITHUB_REPOSITORY_OWNER_ID:', env.GITHUB_REPOSITORY_OWNER_ID)
-
-  console.log('GITHUB_REF:', env.GITHUB_REF)
-  console.log('GITHUB_REF_NAME:', env.GITHUB_REF_NAME)
-  console.log('GITHUB_REF_PROTECTED:', env.GITHUB_REF_PROTECTED)
-  console.log('GITHUB_REF_TYPE:', env.GITHUB_REF_TYPE)
-
-  console.log('GITHUB_WORKSPACE:', env.GITHUB_WORKSPACE)
-  console.log('HOME:', env.HOME)
 
   const result = await release(config, {
     env: {
